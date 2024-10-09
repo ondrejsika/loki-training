@@ -2,6 +2,8 @@
 
 # Loki Training: Log Management in Grafana
 
+![Loki Reykjavik](_images/loki_reykjavik.png)
+
 ## Install Mac
 
 ```
