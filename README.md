@@ -18,6 +18,19 @@ Loki is a horizontally scalable, highly available, multi-tenant log aggregation 
 
 ![](_images/loki_log_example.svg)
 
+## Loki Components
+
+- https://grafana.com/docs/loki/latest/get-started/components/
+
+- **Distributor** - The distributor service is responsible for handling incoming push requests from clients.
+- **Ingester** - The ingester service is responsible for persisting data and shipping it to long-term storage.
+- **Querier** - The querier service is responsible for executing Log Query Language (LogQL) queries from clients.
+- **Query Frontend** - The query frontend is an optional service providing the querier’s API endpoints and can be used to accelerate the read path.
+- **Query Scheduler** - The query scheduler is responsible for distributing query load across queriers.
+- **Index Gateway** - The index gateway service is responsible for handling and serving metadata queries.
+- **Compactor** - The compactor service is used by “shipper stores”, such as single store TSDB or single store BoltDB, to compact the multiple index files produced by the ingesters and shipped to object storage into single index files per day and tenant.
+- **Ruler** - The ruler service manages and evaluates rule and/or alert expressions provided in a rule configuration.
+
 ## Loki Deployment Models
 
 - https://grafana.com/docs/loki/latest/get-started/deployment-modes/
