@@ -10,6 +10,10 @@ Loki is a horizontally scalable, highly available, multi-tenant log aggregation 
 
 -- https://grafana.com/oss/loki/
 
+## How does Grafana Loki work?
+
+![](_images/loki_diagram.svg)
+
 ## Install Mac
 
 ```
