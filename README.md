@@ -168,3 +168,9 @@ check using logcli:
 ```
 logcli query '{job="alloy"}' --follow
 ```
+
+## Send logs from Go application
+
+```
+(cd examples/example_go && go run .)
+```
