@@ -9,6 +9,7 @@
 ```
 brew install loki
 brew install promtail
+brew install logcli
 ```
 
 ## Install Linux (using slu)
@@ -16,4 +17,5 @@ brew install promtail
 ```
 slu ib loki
 slu ib promtail
+slu ib logcli
 ```
