@@ -116,3 +116,55 @@ See logs in Loki using Logcli:
 ```
 logcli query '{job="fluentbit"}' --follow
 ```
+
+## Alloy
+
+## What is Alloy
+
+Grafana Alloy is a vendor-neutral distribution of the OpenTelemetry (OTel) Collector. Alloy uniquely combines the very best OSS observability signals in the community.
+
+Alloy offers native pipelines for OTel, Prometheus, Pyroscope, Loki, and many other metrics, logs, traces, and profile tools.
+
+-- https://grafana.com/docs/alloy/latest/
+
+## Install Alloy
+
+On Mac:
+
+```
+brew install grafana/grafana/alloy
+```
+
+On Linux (using slu):
+
+```
+slu ib alloy
+```
+
+VS Code Extension:
+
+- https://marketplace.visualstudio.com/items?itemName=Grafana.grafana-alloy
+
+## Convert Promtail config to Alloy
+
+- https://grafana.com/docs/alloy/latest/set-up/migrate/from-promtail/
+
+```
+alloy convert --source-format=promtail --output=<OUTPUT_CONFIG_PATH> <INPUT_CONFIG_PATH>
+```
+
+```
+alloy convert --source-format=promtail --output=examples/alloy/simple.alloy examples/promtail/promtail.simple.yml
+```
+
+## Run Alloy
+
+```
+alloy -config.file examples/alloy/simple.alloy
+```
+
+check using logcli:
+
+```
+logcli query '{job="alloy"}' --follow
+```
