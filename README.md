@@ -19,3 +19,27 @@ slu ib loki
 slu ib promtail
 slu ib logcli
 ```
+
+## Run Loggen
+
+```
+slu loggen > /tmp/example.log
+```
+
+## Run Loki
+
+```
+loki -config.file examples/loki/loki.simple.yml
+```
+
+## Run Promtail
+
+```
+promtail -config.file examples/promtail/promtail.simple.yml
+```
+
+## Run Logcli
+
+```
+logcli query '{job="example"}' --follow
+```
