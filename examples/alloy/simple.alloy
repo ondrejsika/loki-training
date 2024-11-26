@@ -1,0 +1,20 @@
+local.file_match "example" {
+	path_targets = [{
+		__address__ = "localhost",
+		__path__    = "/tmp/example.log",
+		job         = "alloy",
+	}]
+}
+
+loki.source.file "example" {
+	targets               = local.file_match.example.targets
+	forward_to            = [loki.write.default.receiver]
+	legacy_positions_file = "/tmp/promtail_positions.yaml"
+}
+
+loki.write "default" {
+	endpoint {
+		url = "http://127.0.0.1:3100/loki/api/v1/push"
+	}
+	external_labels = {}
+}
