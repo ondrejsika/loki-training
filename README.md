@@ -10,3 +10,10 @@
 brew install loki
 brew install promtail
 ```
+
+## Install Linux (using slu)
+
+```
+slu ib loki
+slu ib promtail
+```
