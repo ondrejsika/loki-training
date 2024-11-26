@@ -57,3 +57,23 @@ promtail -config.file examples/promtail/promtail.simple.yml
 ```
 logcli query '{job="example"}' --follow
 ```
+
+## fluent-bit example
+
+## Install fluent-bit on Mac
+
+```
+brew install fluent-bit
+```
+
+## Run fluent-bit
+
+```
+fluent-bit -c examples/fluentbit/fluentbit.conf
+```
+
+See logs in Loki using Logcli:
+
+```
+logcli query '{job="fluentbit"}' --follow
+```
