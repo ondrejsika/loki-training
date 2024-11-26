@@ -18,6 +18,18 @@ Loki is a horizontally scalable, highly available, multi-tenant log aggregation 
 
 ![](_images/loki_log_example.svg)
 
+## Loki Deployment Models
+
+- https://grafana.com/docs/loki/latest/get-started/deployment-modes/
+
+## Loki Monolithic
+
+![](_images/loki_monolithic.png)
+
+## Loki Scalable
+
+![](_images/loki_scalable.png)
+
 ## Install Mac
 
 ```
