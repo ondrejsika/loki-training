@@ -1,0 +1,9 @@
+services:
+  loki:
+    build: .
+    ports:
+      - 3100:3100
+    volumes:
+      - loki-data:/loki
+volumes:
+  loki-data:
