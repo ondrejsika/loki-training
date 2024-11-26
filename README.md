@@ -14,6 +14,10 @@ Loki is a horizontally scalable, highly available, multi-tenant log aggregation 
 
 ![](_images/loki_diagram.svg)
 
+## Example of log line
+
+![](_images/loki_log_example.svg)
+
 ## Install Mac
 
 ```
