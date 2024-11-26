@@ -20,6 +20,20 @@ slu ib promtail
 slu ib logcli
 ```
 
+## logcli completion
+
+For zsh, add this to your ~/.zshrc file:
+
+```
+eval "$(logcli --completion-script-zsh)"
+```
+
+For bash, add this to your ~/.bashrc file:
+
+```
+eval "$(logcli --completion-script-bash)"
+```
+
 ## Run Loggen
 
 ```
