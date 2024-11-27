@@ -306,6 +306,71 @@ sum(count_over_time({prefix="logql"}[1m])) by (instance)
 sum(count_over_time({prefix="logql"}[1m])) by (level)
 ```
 
+## logcli
+
+### logcli query
+
+by default listens on `localhost:3100`
+
+```
+logcli query '{prefix="logql"}'
+```
+
+specify loku address using `--addr`
+
+```
+logcli query --addr http://loki.sikademo.com:3100 '{prefix="logql"}'
+```
+
+or using `LOKI_ADDR` environment variable
+
+```
+export LOKI_ADDR=http://loki.sikademo.com:3100
+logcli query '{prefix="logql"}'
+```
+
+follow logs
+
+```
+logcli query '{prefix="logql"}' --follow
+```
+
+no labels
+
+```
+logcli query '{prefix="logql"}' --no-labels
+```
+
+quiet mode (no headers)
+
+```
+logcli query '{prefix="logql"}' --quiet
+```
+
+```
+logcli query '{prefix="logql"}' --no-labels --quiet
+```
+
+output format
+
+```
+logcli query '{prefix="logql"}' --output raw
+```
+
+```
+logcli query '{prefix="logql"}' -o jsonl
+```
+
+output format and quiet mode
+
+```
+logcli query '{prefix="logql"}' --quiet --output raw
+```
+
+```
+logcli query '{prefix="logql"}' -q -o jsonl
+```
+
 ## Loki Canary
 
 Loki Canary is a standalone app that audits the log-capturing performance of a Grafana Loki cluster.
