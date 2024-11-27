@@ -274,6 +274,16 @@ Parse JSON log lines.
 {prefix="logql-json"} | json
 ```
 
+### decolorize
+
+```logql
+{app=~".*tergum.*"}
+```
+
+```logql
+{app=~".*tergum.*"} | decolorize
+```
+
 ### count_over_time
 
 ```logql
