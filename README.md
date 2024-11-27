@@ -236,6 +236,16 @@ docker run -p 3000:3000 grafana/grafana
 {prefix="logql"} !~ "context|igno"
 ```
 
+### line_format
+
+```logql
+{prefix="logql"} | line_format "{{.prefix}}"
+```
+
+```logql
+{prefix="logql"} | line_format "{{.prefix}}-{{.instance}}-{{.level}}"
+```
+
 ### count_over_time
 
 ```logql
