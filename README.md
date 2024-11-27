@@ -419,6 +419,38 @@ logcli series '{prefix="logql", instance="0"}'
 alertmanager --config.file ./examples/alertmanager/alertmanager.yml
 ```
 
+## Run Loki with Alerting
+
+See diff of Loki config files
+
+```
+vimdiff examples/loki/loki.simple.yml examples/loki/loki.alerting.yml
+```
+
+See `rules.yml`
+
+```
+cat examples/rules/fake/rules.yml
+```
+
+Run Loki with alerting
+
+```
+loki -config.file examples/loki/loki.alerting.yml
+```
+
+## Run Maildev
+
+```
+docker run --name maildev -d -p 1080:1080 -p 1025:1025 maildev/maildev
+```
+
+## Make Errors
+
+```
+slu loggen -s 10 --loki-url http://127.0.0.1:3100/loki/api/v1/push -p logql --no-info --no-warn --no-debug
+```
+
 ## Loki Canary
 
 Loki Canary is a standalone app that audits the log-capturing performance of a Grafana Loki cluster.
