@@ -246,6 +246,18 @@ docker run -p 3000:3000 grafana/grafana
 {prefix="logql"} | line_format "{{.prefix}}-{{.instance}}-{{.level}}"
 ```
 
+### logfmt
+
+Parse all `key=value` pairs from log lines.
+
+```logql
+{prefix="logql"} | logfmt
+```
+
+```logql
+{prefix="logql"} | logfmt | line_format("{{.i}}")
+```
+
 ### count_over_time
 
 ```logql
