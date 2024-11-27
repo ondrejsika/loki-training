@@ -174,3 +174,11 @@ logcli query '{job="alloy"}' --follow
 ```
 (cd examples/example_go && go run .)
 ```
+
+## Grafana
+
+## Run Grafana
+
+```
+docker run -p 3000:3000 grafana/grafana
+```
