@@ -1,0 +1,5 @@
+config:
+  clients:
+    - url: http://loki.sikademo.com:3100/loki/api/v1/push # CHANGE_ME
+      external_labels:
+        cluster: default # CHANGE_ME
