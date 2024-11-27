@@ -266,6 +266,14 @@ Rename labels `i` to `counter`.
 {prefix="logql"} | logfmt | label_format counter=i
 ```
 
+### json
+
+Parse JSON log lines.
+
+```logql
+{prefix="logql-json"} | json
+```
+
 ### count_over_time
 
 ```logql
