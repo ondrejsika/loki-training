@@ -187,6 +187,27 @@ docker run -p 3000:3000 grafana/grafana
 
 - https://grafana.com/docs/loki/latest/query/
 
+### count_over_time
+
+```logql
+count_over_time({prefix="logql"}[1m])
+```
+
+```logql
+sum(count_over_time({prefix="logql"}[1m]))
+```
+
+```logql
+sum(count_over_time({prefix="logql"}[10m]))
+```
+
+```logql
+sum(count_over_time({prefix="logql"}[1m])) by (instance)
+```
+
+```logql
+sum(count_over_time({prefix="logql"}[1m])) by (level)
+```
 
 ## Loki Canary
 
