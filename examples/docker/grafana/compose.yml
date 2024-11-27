@@ -1,0 +1,13 @@
+name: grafana
+services:
+  grafana:
+    image: grafana/grafana
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana-data:/var/lib/grafana
+volumes:
+  grafana-data:
