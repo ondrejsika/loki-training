@@ -1,0 +1,15 @@
+name: promtail
+services:
+  promtail:
+    build: .
+    platform: linux/amd64
+    restart: always
+    environment:
+      PROMTAIL_LABEL_HOST: ${PROMTAIL_LABEL_HOST?}
+      LOKI_ORIGIN: ${LOKI_ORIGIN?}
+    volumes:
+      - promtail-positions:/promtail/positions
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker:/var/lib/docker
+volumes:
+  promtail-positions:
