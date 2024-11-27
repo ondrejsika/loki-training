@@ -182,3 +182,12 @@ logcli query '{job="alloy"}' --follow
 ```
 docker run -p 3000:3000 grafana/grafana
 ```
+
+## Doggos
+
+[![@wild.loki.appears](./_images/loki1.jpg)](https://www.instagram.com/wild.loki.appears/)
+[![@loki](./_images/loki2.jpg)](https://www.instagram.com/loki/)
+
+[@wild.loki.appears](https://www.instagram.com/wild.loki.appears/)
+
+[@loki](https://www.instagram.com/loki/)
