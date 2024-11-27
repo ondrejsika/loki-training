@@ -180,6 +180,12 @@ logcli query '{job="alloy"}' --follow
 ## Run Grafana
 
 ```
+make -C examples/docker/grafana up
+```
+
+or
+
+```
 docker run -p 3000:3000 grafana/grafana
 ```
 
