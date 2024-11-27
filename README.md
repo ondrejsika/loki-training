@@ -258,6 +258,14 @@ Parse all `key=value` pairs from log lines.
 {prefix="logql"} | logfmt | line_format("{{.i}}")
 ```
 
+### label_format
+
+Rename labels `i` to `counter`.
+
+```logql
+{prefix="logql"} | logfmt | label_format counter=i
+```
+
 ### count_over_time
 
 ```logql
