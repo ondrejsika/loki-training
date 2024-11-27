@@ -371,6 +371,24 @@ logcli query '{prefix="logql"}' --quiet --output raw
 logcli query '{prefix="logql"}' -q -o jsonl
 ```
 
+### logcli labels
+
+List all labels
+
+```
+logcli labels
+```
+
+List all labels with values
+
+```
+logcli labels <label>
+```
+
+```
+logcli labels level
+```
+
 ## Loki Canary
 
 Loki Canary is a standalone app that audits the log-capturing performance of a Grafana Loki cluster.
