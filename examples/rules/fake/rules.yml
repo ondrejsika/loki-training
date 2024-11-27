@@ -1,0 +1,12 @@
+groups:
+  - name: logql
+    rules:
+      - alert: HighErrorRate
+        expr: |
+          sum(count_over_time({prefix="logql", level="error"}[1m]))
+        for: 10s
+        labels:
+            severity: warning
+        annotations:
+            title: "High error rate in logs"
+            description: "something is logging a lot of errors"
