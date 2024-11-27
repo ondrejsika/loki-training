@@ -413,6 +413,12 @@ logcli series '{prefix="logql"}'
 logcli series '{prefix="logql", instance="0"}'
 ```
 
+## Run Alertmanager
+
+```
+alertmanager --config.file ./examples/alertmanager/alertmanager.yml
+```
+
 ## Loki Canary
 
 Loki Canary is a standalone app that audits the log-capturing performance of a Grafana Loki cluster.
