@@ -187,6 +187,32 @@ docker run -p 3000:3000 grafana/grafana
 
 - https://grafana.com/docs/loki/latest/query/
 
+### Log Stream Selector
+
+```logql
+{prefix="logql"}
+```
+
+```logql
+{prefix="logql", instance="0"}
+```
+
+```logql
+{prefix="logql", instance!="0"}
+```
+
+```logql
+{prefix="logql", instance="us-0"}
+```
+
+```logql
+{prefix="logql", instance=~"us-.*"}
+```
+
+```logql
+{prefix="logql", instance!~"us-.*"}
+```
+
 ### count_over_time
 
 ```logql
