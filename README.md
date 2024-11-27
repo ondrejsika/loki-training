@@ -183,6 +183,11 @@ logcli query '{job="alloy"}' --follow
 docker run -p 3000:3000 grafana/grafana
 ```
 
+## LogQL - Log Query Language
+
+- https://grafana.com/docs/loki/latest/query/
+
+
 ## Loki Canary
 
 Loki Canary is a standalone app that audits the log-capturing performance of a Grafana Loki cluster.
