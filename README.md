@@ -213,6 +213,29 @@ docker run -p 3000:3000 grafana/grafana
 {prefix="logql", instance!~"us-.*"}
 ```
 
+### Log Filter Expression
+
+- `|=` - Log line contains string
+- `!=` - Log line does not contain string
+- `|~` - Log line contains a match to the regular expression
+- `!~` - Log line does not contain a match to the regular expression
+
+```logql
+{prefix="logql"} |= "and not handled"
+```
+
+```logql
+{prefix="logql"} != "and not handled"
+```
+
+```logql
+{prefix="logql"} |~ "context|igno"
+```
+
+```logql
+{prefix="logql"} !~ "context|igno"
+```
+
 ### count_over_time
 
 ```logql
