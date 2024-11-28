@@ -2,11 +2,19 @@ groups:
   - name: logql
     rules:
       - alert: HighErrorRate
-        expr: |
-          sum(count_over_time({prefix="logql", level="error"}[1m]))
+        expr: count_over_time({job="curl", level="error"}[1m]) > 5
         for: 10s
         labels:
-            severity: warning
+          severity: warning
         annotations:
-            title: "High error rate in logs"
-            description: "something is logging a lot of errors"
+          title: "High error rate in logs"
+          description: "something is logging a lot of errors"
+
+      - alert: HighWarnRate
+        expr: count_over_time({job="curl", level="warn"}[1m]) > 5
+        for: 10s
+        labels:
+          severity: warning
+        annotations:
+          title: "High warn rate in logs"
+          description: "something is logging a lot of warnings"
