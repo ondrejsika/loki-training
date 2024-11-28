@@ -1,0 +1,21 @@
+filebeat.inputs:
+- type: kafka
+  hosts:
+    - - ${KAFKA_BOOTSTRAP}
+  topics:
+    - logs
+  group_id: filebeat
+
+processors:
+  - decode_json_fields:
+      fields:
+        - message
+      max_depth: 1
+      target: ""
+
+output.elasticsearch:
+  hosts:
+    - https://es.k8s.sikademo.com:443
+  ssl.verification_mode: none
+  username: elastic
+  password: elastic
