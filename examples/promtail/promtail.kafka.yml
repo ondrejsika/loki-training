@@ -1,0 +1,37 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 9095
+
+positions:
+  filename: /tmp/promtail_positions.yaml
+
+clients:
+  - url: http://localhost:3100/loki/api/v1/push
+    external_labels:
+      promtail_source: kafka
+
+scrape_configs:
+- job_name: kafka
+  kafka:
+    brokers:
+    - 138.68.69.94:30424
+    - 64.226.123.212:30424
+    topics:
+    - logs
+    labels:
+      job: kafka-json
+      job_version: kafka-json-v1
+  relabel_configs:
+      - action: replace
+        source_labels:
+          - __meta_kafka_topic
+        target_label: topic
+
+  pipeline_stages:
+    - json:
+        expressions:
+          level: level
+          prefix: prefix
+    - labels:
+        level:
+        prefix:
