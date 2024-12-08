@@ -1,0 +1,14 @@
+services:
+  loki:
+    build: ./loki
+    volumes:
+      - loki-data:/loki
+  caddy:
+    build: ./caddy
+    ports:
+      - 3100:3100
+    depends_on:
+      - loki
+
+volumes:
+  loki-data:

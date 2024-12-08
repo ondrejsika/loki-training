@@ -1,0 +1,9 @@
+:3100 {
+    route {
+        basicauth / {
+            # Generate password using: caddy hash-password --plaintext loki
+            loki "$2a$14$2zXaPMBmXnGcqbBU/IvCTOIatVzyommYcVL42LRRis/qdqVzik3qC"
+        }
+        reverse_proxy loki:3100
+    }
+}
