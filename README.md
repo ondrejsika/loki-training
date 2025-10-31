@@ -1,4 +1,4 @@
-[Ondrej Sika (sika.io)](https://sika.io) | <ondrej@sika.io>
+[Ondrej Sika (sika.io)](https://sika.io) | <ondrej@sika.io>| [**Skoleni Loki**](https://ondrej-sika.cz/skoleni/loki/) 🚀💻
 
 # Loki Training: Log Management in Grafana
 
