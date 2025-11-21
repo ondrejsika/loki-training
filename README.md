@@ -98,7 +98,23 @@ promtail -config.file examples/promtail/promtail.simple.yml
 ## Run Logcli
 
 ```
+logcli query '{job="example"}'
+```
+
+```
 logcli query '{job="example"}' --follow
+```
+
+```
+logcli query '{job="example"}' --follow --no-labels
+```
+
+```
+logcli query '{job="example"}' --quiet
+```
+
+```
+logcli query '{job="example"}' --quiet --output raw
 ```
 
 ## fluent-bit example
