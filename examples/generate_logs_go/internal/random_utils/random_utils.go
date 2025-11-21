@@ -6,6 +6,25 @@ func RandomChoice(choices []string) string {
 	return choices[rand.Intn(len(choices))]
 }
 
+func GetRandomPetName() string {
+	return RandomChoice([]string{
+		"Dela",
+		"Nela",
+		"Debbie",
+		"Kuna",
+	})
+}
+
+func GetRandomPetKind() string {
+	return RandomChoice([]string{
+		"dog",
+		"cat",
+		"rat",
+		"bat",
+		"lizard",
+	})
+}
+
 func GetRandomPath() string {
 	return RandomChoice([]string{
 		"/api/v1/users",

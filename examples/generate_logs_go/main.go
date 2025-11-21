@@ -22,7 +22,13 @@ func main() {
 	for i := 0; i < totalSeconds; i++ {
 		ts := start.Add(time.Duration(i) * time.Second)
 
-		msg := fmt.Sprintf("%s i=%d", random_utils.GetRandomMessage(), i)
+		msg := fmt.Sprintf(
+			"%s i=%d pet_name=%s pet_kind=%s",
+			random_utils.GetRandomMessage(),
+			i,
+			random_utils.GetRandomPetName(),
+			random_utils.GetRandomPetKind(),
+		)
 
 		err = loki.Log(
 			model.LabelSet{
