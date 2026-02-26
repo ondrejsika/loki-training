@@ -1,0 +1,32 @@
+// Discover all running Docker containers
+discovery.docker "containers" {
+	host = "unix:///var/run/docker.sock"
+}
+
+// Relabel Docker metadata into Loki labels
+discovery.relabel "containers" {
+	targets = discovery.docker.containers.targets
+
+	rule {
+		source_labels = ["__meta_docker_container_name"]
+		regex         = "/(.*)"
+		target_label  = "container"
+	}
+}
+
+// Source logs from discovered containers
+loki.source.docker "containers" {
+	host       = "unix:///var/run/docker.sock"
+	targets    = discovery.relabel.containers.output
+	forward_to = [loki.write.default.receiver]
+}
+
+// Write logs to Loki
+loki.write "default" {
+	endpoint {
+		url = "http://127.0.0.1:3100/loki/api/v1/push"
+	}
+	external_labels = {
+		hostname = env("HOSTNAME"),
+	}
+}
