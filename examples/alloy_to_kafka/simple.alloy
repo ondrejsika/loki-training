@@ -1,0 +1,30 @@
+// Read logs from a file
+local.file_match "example" {
+	path_targets = [{
+		__address__ = "localhost",
+		__path__    = "/tmp/example.log",
+		job         = "alloy_to_kafka",
+	}]
+}
+
+// Source logs from matched files and forward to OTEL receiver
+loki.source.file "example" {
+	targets               = local.file_match.example.targets
+	forward_to            = [otelcol.receiver.loki.default.receiver]
+	legacy_positions_file = "/tmp/positions.yaml"
+}
+
+// Convert Loki log entries to OTEL format
+otelcol.receiver.loki "default" {
+	output {
+		logs = [otelcol.exporter.kafka.default.input]
+	}
+}
+
+// Export logs to Kafka
+otelcol.exporter.kafka "default" {
+	brokers          = ["98.67.146.92:29092"]
+	protocol_version = "2.6.0"
+	topic            = "logs"
+	encoding         = "otlp_proto"
+}
