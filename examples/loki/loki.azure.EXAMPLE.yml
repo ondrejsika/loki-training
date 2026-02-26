@@ -1,0 +1,32 @@
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+  grpc_listen_port: 9096
+
+common:
+  instance_addr: 127.0.0.1
+  path_prefix: /tmp/loki
+  replication_factor: 1
+  storage:
+    azure:
+      account_name: CHANGE_ME  # Azure Storage account name
+      account_key: CHANGE_ME   # Azure Storage account key
+      container_name: loki     # Azure Blob container name
+  ring:
+    kvstore:
+      store: inmemory
+
+schema_config:
+  configs:
+    - from: 2020-10-24
+      store: tsdb
+      object_store: azure
+      schema: v13
+      index:
+        prefix: index_
+        period: 24h
+
+ingester:
+  chunk_target_size: 512000 # 512kb
+  max_chunk_age: 1m
