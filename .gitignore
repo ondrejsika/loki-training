@@ -5,3 +5,6 @@ data-alloy
 .env
 
 compose.override.yml
+
+*.local.yml
+*.local.yaml
