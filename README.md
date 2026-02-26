@@ -98,6 +98,10 @@ promtail -config.file examples/promtail/promtail.simple.yml
 ## Run Logcli
 
 ```
+logcli series '{}'
+```
+
+```
 logcli query '{job="example"}'
 ```
 
