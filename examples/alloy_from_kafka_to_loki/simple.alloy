@@ -1,0 +1,26 @@
+// Receive logs from Kafka and convert OTEL format to Loki entries
+otelcol.receiver.kafka "default" {
+	brokers          = ["98.67.146.92:29092"]
+	protocol_version = "2.6.0"
+	initial_offset   = "earliest"
+	logs {
+		topics   = ["logs"]
+		encoding = "otlp_proto"
+	}
+
+	output {
+		logs = [otelcol.exporter.loki.default.input]
+	}
+}
+
+// Convert OTEL log entries to Loki format
+otelcol.exporter.loki "default" {
+	forward_to = [loki.write.default.receiver]
+}
+
+// Write logs to Loki
+loki.write "default" {
+	endpoint {
+		url = "http://127.0.0.1:3100/loki/api/v1/push"
+	}
+}
