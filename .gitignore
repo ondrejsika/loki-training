@@ -6,6 +6,7 @@ data-alloy
 
 compose.override.yml
 
+*.local.txt
 *.local.md
 *.local.yml
 *.local.yaml
