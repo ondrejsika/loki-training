@@ -334,6 +334,42 @@ sum(count_over_time({prefix="logql"}[1m])) by (level)
 
 ## logcli
 
+### logcli series
+
+List all series
+
+```
+logcli series '{}'
+```
+
+List all series with labels
+
+```
+logcli series '{prefix="logql"}'
+```
+
+```
+logcli series '{prefix="logql", instance="0"}'
+```
+
+### logcli labels
+
+List all labels
+
+```
+logcli labels
+```
+
+List all labels with values
+
+```
+logcli labels <label>
+```
+
+```
+logcli labels level
+```
+
 ### logcli query
 
 by default listens on `localhost:3100`
@@ -395,42 +431,6 @@ logcli query '{prefix="logql"}' --quiet --output raw
 
 ```
 logcli query '{prefix="logql"}' -q -o jsonl
-```
-
-### logcli labels
-
-List all labels
-
-```
-logcli labels
-```
-
-List all labels with values
-
-```
-logcli labels <label>
-```
-
-```
-logcli labels level
-```
-
-### logcli series
-
-List all series
-
-```
-logcli series '{}'
-```
-
-List all series with labels
-
-```
-logcli series '{prefix="logql"}'
-```
-
-```
-logcli series '{prefix="logql", instance="0"}'
 ```
 
 ## Run Alertmanager
