@@ -8,3 +8,12 @@ compose.override.yml
 
 *.local.yml
 *.local.yaml
+
+# Terraform
+.terraform
+*.tfplan
+*.tfstate
+.terraform.tfstate.lock.info
+*.tfvars
+!*.EXAMPLE.tfvars
+override.tf
